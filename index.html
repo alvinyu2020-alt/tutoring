@@ -608,16 +608,79 @@
       border: 1px solid var(--cream-dark);
       padding: 56px 48px;
       margin-top: 48px;
-      text-align: center;
+      text-align: left;
     }
 
-    .pricing-contact-box p {
+    .pricing-contact-box > p {
       font-family: var(--serif);
       font-size: 1.2rem;
       font-style: italic;
       color: var(--text-mid);
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       line-height: 1.7;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--navy);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--navy);
     }
 
     /* ── SUBJECT PAGES (11+, GCSEs) ── */
@@ -721,11 +784,11 @@
   <a class="nav-logo" onclick="showPage('home')">Alvin Yu</a>
   <ul class="nav-links">
     <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
-    <li><a onclick="showPage('about')" id="nav-about">About Me</a></li>
-    <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
-    <li><a onclick="showPage('pricing')" id="nav-pricing">Pricing</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('pricing')" id="nav-pricing">Contact Me</a></li>
     <li><a onclick="showPage('eleven')" id="nav-eleven">11+</a></li>
     <li><a onclick="showPage('gcse')" id="nav-gcse">GCSEs</a></li>
+    <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
   </ul>
 </nav>
 
@@ -758,7 +821,7 @@
       </div>
       <div>
         <button class="btn-primary" onclick="showPage('about')">About Me</button>
-        <button class="btn-outline" onclick="showPage('pricing')">Enquire</button>
+        <button class="btn-outline" onclick="showPage('pricing')">Contact Me</button>
       </div>
     </div>
   </div>
@@ -787,12 +850,99 @@
     </div>
   </div>
 
-  <!-- Home testimonial -->
-  <div class="home-testimonial">
-    <blockquote>
-      "In three weeks, Alvin moved our son up 4 grades — from a 2 to a 6. He is a very impressive tutor."
-    </blockquote>
-    <cite>Rosario — GCSE English Parent</cite>
+  <!-- Credentials -->
+  <div style="background:var(--cream); padding: 80px 56px;">
+    <div style="max-width:960px; margin:0 auto;">
+      <div class="section-eyebrow">Background</div>
+      <h2 class="section-title">Qualifications &amp; Experience</h2>
+      <div class="section-divider"></div>
+      <div class="two-col">
+        <div>
+          <div class="info-block">
+            <div class="info-block h4" style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Academic Qualifications</div>
+            <ul class="quals-list">
+              <li>10 A* grades at GCSE</li>
+              <li>AAAA at AS-Level</li>
+              <li>AAA at A2-Level (English, Spanish, Maths &amp; Physics)</li>
+              <li>BA English Language &amp; Literature, University of Oxford</li>
+              <li>First-class Dissertation — Computational Sociolinguistics</li>
+              <li>High 2:1 Overall</li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Subjects</div>
+            <ul class="quals-list">
+              <li>11+ English &amp; Maths</li>
+              <li>(I)GCSE English — Cambridge, AQA, OCR</li>
+              <li>A-Level English Literature &amp; Language — Edexcel, OCR, AQA</li>
+              <li>IB English Language &amp; Literature (SL &amp; HL)</li>
+              <li>Oxbridge interview preparation</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="info-block">
+            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Experience</div>
+            <p class="body-text">
+              I have 10 years' experience tutoring English and Maths at 7+, 9+, 11+, GCSE, A-Level and
+              Undergraduate levels, with over 5,000 hours of one-to-one tuition.
+            </p>
+            <p class="body-text" style="margin-top:16px;">
+              I spent two years providing my services to the <strong>Escape Charity</strong>, teaching
+              English GCSE group classes in Haringey state schools through the Pupil Premium scheme. I have
+              also worked as a mock examiner for <strong>Oxbridge Applications</strong>, conducting over
+              100 mock interviews.
+            </p>
+            <p class="body-text" style="margin-top:16px;">
+              I am a top tutor at several of London's major agencies, including <strong>Athena Tuition</strong>
+              and <strong>Bright Young Things</strong>.
+            </p>
+          </div>
+          <div class="info-block">
+            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Interests</div>
+            <p class="body-text">
+              Beyond academia, I practice photography, participate in Blitz chess tournaments,
+              and write fiction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div style="background:var(--cream-dark); padding: 80px 56px;">
+    <div style="max-width:960px; margin:0 auto;">
+      <div class="section-eyebrow" style="text-align:center;">Testimonials</div>
+      <h2 class="section-title" style="text-align:center; margin:0 auto 24px;">What Parents &amp; Students Say</h2>
+      <div class="section-divider" style="margin:0 auto 48px;"></div>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--cream-dark);">
+        <div class="testimonial-card">
+          <blockquote>"Alvin is a very impressive tutor. We took him on with three weeks to go before Sandy's GCSE English exam. In 3 weeks, Alvin moved our son up 4 grades — from a 2 to a 6."</blockquote>
+          <cite>Rosario — GCSE English</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>"Absolutely fantastic tutor. Always on time and has worked well with both my children. My older one has been offered places at Bancroft, Chigwell, South Hampstead and City of London Junior School for Girls."</blockquote>
+          <cite>Sid Patel — 7+ Entrance Exams</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>"My son has been working with Alvin to study his English Literature A-Level for over a year. His confidence has grown so much and his grades have improved to A–B, up from C–D. Thank you so much for all your help!"</blockquote>
+          <cite>Estelle Marasigan — A-Level English</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>"Alvin has tutored my twin daughters through their GCSE English. After just a couple of weeks they were feeling so much better about English, went on to get good grades, and now really enjoy the subject."</blockquote>
+          <cite>Alice Williams — GCSE English</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>"Alvin tutored my son in GCSE English and progressed him from a predicted grade of 3 to achieving a 6. He was especially mindful of my son's dyslexia and thoughtful in his preparations. Can't recommend him highly enough."</blockquote>
+          <cite>Julie Cooper — GCSE English</cite>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>"Alvin has been an invaluable asset helping my son prepare for the 11+. He has been patient, supportive, and committed. My son has demonstrated real progress in his writing and confidence."</blockquote>
+          <cite>Dara Seitzman — 11+ Preparation</cite>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -802,7 +952,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -826,62 +977,6 @@
   </div>
 
   <div class="about-content">
-
-    <!-- Qualifications & Background -->
-    <div class="two-col">
-      <div>
-        <div class="info-block">
-          <div class="section-eyebrow">Academic Qualifications</div>
-          <ul class="quals-list">
-            <li>10 A* grades at GCSE</li>
-            <li>AAAA at AS-Level</li>
-            <li>AAA at A2-Level (English, Spanish, Maths &amp; Physics)</li>
-            <li>BA English Language &amp; Literature, University of Oxford</li>
-            <li>First-class Dissertation — Computational Sociolinguistics</li>
-            <li>High 2:1 Overall</li>
-          </ul>
-        </div>
-
-        <div class="info-block">
-          <div class="section-eyebrow">Subjects</div>
-          <ul class="quals-list">
-            <li>11+ English &amp; Maths</li>
-            <li>(I)GCSE English — Cambridge, AQA, OCR</li>
-            <li>A-Level English Literature &amp; Language — Edexcel, OCR, AQA</li>
-            <li>IB English Language &amp; Literature (SL &amp; HL)</li>
-            <li>Oxbridge interview preparation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div>
-        <div class="info-block">
-          <div class="section-eyebrow">Experience</div>
-          <p class="body-text">
-            I have 10 years' experience tutoring English and Maths at 7+, 9+, 11+, GCSE, A-Level and
-            Undergraduate levels, with over 5,000 hours of one-to-one tuition.
-          </p>
-          <p class="body-text" style="margin-top:16px;">
-            I spent two years providing my services to the <strong>Escape Charity</strong>, teaching
-            English GCSE group classes in Haringey state schools through the Pupil Premium scheme. I have
-            also worked as a mock examiner for <strong>Oxbridge Applications</strong>, conducting over
-            100 mock interviews.
-          </p>
-          <p class="body-text" style="margin-top:16px;">
-            I am a top tutor at several of London's major agencies, including <strong>Athena Tuition</strong>
-            and <strong>Bright Young Things</strong>.
-          </p>
-        </div>
-
-        <div class="info-block">
-          <div class="section-eyebrow">Interests</div>
-          <p class="body-text">
-            Beyond academia, I practice photography, participate in Blitz chess tournaments,
-            and write fiction.
-          </p>
-        </div>
-      </div>
-    </div>
 
     <!-- Approach tabs -->
     <div class="approach-tabs">
@@ -961,58 +1056,6 @@
       </div>
     </div>
 
-    <!-- Testimonials -->
-    <div style="margin-top:80px;">
-      <div class="section-eyebrow">Testimonials</div>
-      <h2 class="section-title">What Parents &amp; Students Say</h2>
-      <div class="section-divider"></div>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <blockquote>
-          "Alvin is a very impressive tutor. We took him on with three weeks to go before Sandy's GCSE
-          English exam. In 3 weeks, Alvin moved our son up 4 grades — from a 2 to a 6."
-        </blockquote>
-        <cite>Rosario — GCSE English</cite>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>
-          "Thanks to Alvin's patience and skills, Felix gained a greater appreciation of literature as well
-          as a sound technical understanding of literary analysis. Alvin is a charming, patient, and
-          well-educated young man."
-        </blockquote>
-        <cite>Aurelie — Mother, GCSE English</cite>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>
-          "Alvin has been so wonderful to Katie. She looks forward to every lesson, and has even started
-          reading poetry after dinner."
-        </blockquote>
-        <cite>Cordelia — Mother, IB English</cite>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>
-          "I can't tell you how grateful we are for your commitment and the very evident improvement T has
-          displayed — as much in terms of confidence as in capability."
-        </blockquote>
-        <cite>Beatrice — Mother, A-Level English</cite>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>
-          "Alvin is a wonderful tutor. He has taught our son Matthew for 4 years and he's gone from
-          struggling to read to one of the top students in his class."
-        </blockquote>
-        <cite>Parent — IB English</cite>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>
-          "Thank you so much for all your help, I definitely wouldn't have got this far without you!"
-        </blockquote>
-        <cite>Rosie — Oxbridge Applicant</cite>
-      </div>
-    </div>
-
   </div>
 
   <footer>
@@ -1022,7 +1065,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -1069,7 +1113,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -1078,8 +1123,8 @@
 <div class="page" id="page-pricing">
 
   <div class="page-header">
-    <div class="eyebrow">Rates</div>
-    <h1>Pricing</h1>
+    <div class="eyebrow">Get in Touch</div>
+    <h1>Contact Me</h1>
   </div>
 
   <div class="pricing-content">
@@ -1096,9 +1141,42 @@
         "Every student is different — I prefer to have a brief conversation before we begin
         to ensure the arrangement works well for everyone."
       </p>
-      <button class="btn-primary" onclick="window.location='mailto:alvinyu1994@gmail.com'">
-        Get in Touch
-      </button>
+
+      <form class="contact-form" action="https://formspree.io/f/mlgydwjd" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="e.g. jane@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select id="level" name="level" required>
+            <option value="" disabled selected>Select a level</option>
+            <option value="11+">11+</option>
+            <option value="GCSE">GCSE</option>
+            <option value="A-Level">A-Level</option>
+            <option value="IB">IB</option>
+            <option value="Oxbridge">Oxbridge Preparation</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me a little about your child and what you're looking for..." required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn-primary">Send Enquiry</button>
+        </div>
+      </form>
+
+      <div class="form-success" id="form-success">
+        Thank you — I'll be in touch shortly.
+      </div>
     </div>
   </div>
 
@@ -1109,7 +1187,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -1158,7 +1237,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -1211,7 +1291,8 @@
     </div>
     <div class="footer-contact">
       <p>Get in touch</p>
-      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
+      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
     </div>
   </footer>
 </div>
@@ -1223,6 +1304,24 @@
     document.getElementById('page-' + id).classList.add('active');
     document.getElementById('nav-' + id).classList.add('active');
     window.scrollTo(0, 0);
+  }
+
+  // Contact form
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        contactForm.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }
+    });
   }
 
   function showTab(id) {

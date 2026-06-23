@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alvin Yu — Private Tutor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1C2B5A;
+      --navy-light: #243470;
+      --cream:  #F7F3EC;
+      --cream-dark: #EDE8DF;
+      --gold:   #B8943F;
+      --text:   #1A1A1A;
+      --text-mid: #4A4A4A;
+      --text-light: #7A7A7A;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(247,243,236,0.75);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--cream);
+    }
+
+    .nav-links li a.active {
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; padding-top: 68px; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ── HOME ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 68px);
+    }
+
+    .hero-image-col {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px;
+    }
+
+    .hero-photo {
+      width: 340px;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .photo-placeholder {
+      width: 340px;
+      height: 420px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(247,243,236,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      gap: 12px;
+    }
+
+    .photo-placeholder svg { opacity: 0.4; }
+
+    .hero-content-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px 80px 80px;
+      background: var(--cream);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-family: var(--sans);
+      font-weight: 500;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .stat-item {}
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.25rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--cream);
+      padding: 14px 36px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+      font-family: var(--sans);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover { background: var(--navy-light); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      padding: 13px 36px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+      font-family: var(--sans);
+      font-weight: 500;
+      margin-left: 12px;
+    }
+
+    .btn-outline:hover { background: var(--navy); color: var(--cream); }
+
+    /* Subjects strip */
+    .subjects-strip {
+      background: var(--navy);
+      padding: 48px 56px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--navy);
+    }
+
+    .subject-card {
+      background: var(--navy);
+      padding: 36px 32px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .subject-card:last-child { border-right: none; }
+
+    .subject-card-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .subject-card-sub {
+      font-size: 0.72rem;
+      color: rgba(247,243,236,0.5);
+      letter-spacing: 0.06em;
+    }
+
+    /* Testimonial strip on home */
+    .home-testimonial {
+      background: var(--cream-dark);
+      padding: 80px 160px;
+      text-align: center;
+    }
+
+    .home-testimonial blockquote {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .home-testimonial cite {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── SECTION STYLES (shared) ── */
+    .section-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .section-wrap.wide {
+      max-width: 1100px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2.75rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    .body-text {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .body-text + .body-text { margin-top: 20px; }
+
+    /* ── ABOUT ── */
+    .about-hero {
+      background: var(--navy);
+      padding: 80px 56px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      width: 300px;
+      height: 380px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(247,243,236,0.35);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+
+    .about-hero-text {}
+    .about-hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .about-hero-title {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .about-hero-body {
+      font-size: 0.92rem;
+      color: rgba(247,243,236,0.75);
+      line-height: 1.85;
+    }
+
+    .about-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 48px;
+    }
+
+    .info-block { margin-bottom: 48px; }
+
+    .info-block h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .info-block h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .quals-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quals-list li {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .quals-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+      top: 3px;
+    }
+
+    /* Approach tabs */
+    .approach-tabs {
+      border-top: 1px solid var(--cream-dark);
+      margin-top: 64px;
+      padding-top: 64px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .tab-btn {
+      padding: 14px 32px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      background: none;
+      color: var(--text-light);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      font-family: var(--sans);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn.active {
+      color: var(--navy);
+      border-bottom-color: var(--navy);
+    }
+
+    .tab-btn:hover { color: var(--navy); }
+
+    .tab-panel { display: none; padding: 48px 0 0; }
+    .tab-panel.active { display: block; }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--cream-dark);
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      padding: 48px 44px;
+    }
+
+    .testimonial-card blockquote {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-card cite {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── BLOG ── */
+    .page-header {
+      background: var(--navy);
+      padding: 80px 56px 72px;
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .page-header h1 {
+      font-family: var(--serif);
+      font-size: 3.25rem;
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    .placeholder-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .placeholder-content p {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    .blog-grid {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      gap: 1px;
+      background: var(--cream-dark);
+    }
+
+    .blog-placeholder-card {
+      background: var(--cream);
+      padding: 48px 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+    }
+
+    .blog-placeholder-card .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .blog-placeholder-card h3 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .blog-placeholder-card p {
+      font-size: 0.88rem;
+      color: var(--text-light);
+    }
+
+    .blog-placeholder-card .date {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+      margin-left: 40px;
+      white-space: nowrap;
+    }
+
+    /* ── PRICING ── */
+    .pricing-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      text-align: center;
+    }
+
+    .pricing-content .section-eyebrow { text-align: center; margin-bottom: 14px; }
+    .pricing-content .section-title { text-align: center; margin: 0 auto 24px; }
+    .pricing-content .section-divider { margin: 0 auto 40px; }
+
+    .pricing-contact-box {
+      border: 1px solid var(--cream-dark);
+      padding: 56px 48px;
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    .pricing-contact-box p {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    /* ── SUBJECT PAGES (11+, GCSEs) ── */
+    .subject-page-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .subject-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 80px;
+    }
+
+    .subject-intro h2 {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .detail-block {
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 32px;
+      margin-top: 32px;
+    }
+
+    .detail-block h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 56px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .footer-brand {}
+    .footer-brand .logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .footer-brand p {
+      font-size: 0.78rem;
+      color: rgba(247,243,236,0.4);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-contact {
+      text-align: right;
+    }
+
+    .footer-contact p {
+      font-size: 0.78rem;
+      color: rgba(247,243,236,0.5);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+
+    /* ── RESPONSIVE HINT (mockup only) ── */
+    .mockup-banner {
+      background: #f0ebdf;
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 10px 56px;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* Accessible focus */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="mockup-banner">
+  ✦ Design Mockup — Replace placeholder images and content as needed before publishing to Google Sites ✦
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">Alvin Yu</a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About Me</a></li>
+    <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+    <li><a onclick="showPage('pricing')" id="nav-pricing">Pricing</a></li>
+    <li><a onclick="showPage('eleven')" id="nav-eleven">11+</a></li>
+    <li><a onclick="showPage('gcse')" id="nav-gcse">GCSEs</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════ HOME ═══════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-image-col">
+      <div class="photo-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span>Your Photo</span>
+      </div>
+    </div>
+
+    <div class="hero-content-col">
+      <div class="hero-eyebrow">Private Tutor · London</div>
+      <h1 class="hero-name">Alvin<br/>Yu</h1>
+      <p class="hero-tagline">Oxford English graduate with 10+ years<br/>helping students reach their potential.</p>
+      <div class="hero-divider"></div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5,000+</div>
+          <div class="stat-label">Hours Tutored</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Grade Boundaries</div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-primary" onclick="showPage('about')">About Me</button>
+        <button class="btn-outline" onclick="showPage('pricing')">Enquire</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subject strip -->
+  <div class="subjects-strip">
+    <div class="subject-card">
+      <div class="subject-card-title">11+ Preparation</div>
+      <div class="subject-card-sub">English &amp; Maths</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-card-title">GCSE</div>
+      <div class="subject-card-sub">English · Maths</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-card-title">A-Level</div>
+      <div class="subject-card-sub">English Literature &amp; Language</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-card-title">IB English</div>
+      <div class="subject-card-sub">SL &amp; HL</div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-card-title">Oxbridge</div>
+      <div class="subject-card-sub">Interview Preparation</div>
+    </div>
+  </div>
+
+  <!-- Home testimonial -->
+  <div class="home-testimonial">
+    <blockquote>
+      "In three weeks, Alvin moved our son up 4 grades — from a 2 to a 6. He is a very impressive tutor."
+    </blockquote>
+    <cite>Rosario — GCSE English Parent</cite>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="about-hero">
+    <div class="about-photo-wrap">Photo</div>
+    <div class="about-hero-text">
+      <div class="about-hero-eyebrow">About Me</div>
+      <h1 class="about-hero-title">A decade of<br/>transforming students.</h1>
+      <p class="about-hero-body">
+        I have been working as a private tutor since 2015, with over 5,000 hours of one-to-one
+        experience across English and Maths at every level from 7+ to Undergraduate. I am a graduate
+        of the University of Oxford, where I studied English Language and Literature, specialising in
+        computational sociolinguistics and Medieval Literature. I achieved a first in my dissertation
+        and a high 2:1 overall.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-content">
+
+    <!-- Qualifications & Background -->
+    <div class="two-col">
+      <div>
+        <div class="info-block">
+          <div class="section-eyebrow">Academic Qualifications</div>
+          <ul class="quals-list">
+            <li>10 A* grades at GCSE</li>
+            <li>AAAA at AS-Level</li>
+            <li>AAA at A2-Level (English, Spanish, Maths &amp; Physics)</li>
+            <li>BA English Language &amp; Literature, University of Oxford</li>
+            <li>First-class Dissertation — Computational Sociolinguistics</li>
+            <li>High 2:1 Overall</li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <div class="section-eyebrow">Subjects</div>
+          <ul class="quals-list">
+            <li>11+ English &amp; Maths</li>
+            <li>(I)GCSE English — Cambridge, AQA, OCR</li>
+            <li>A-Level English Literature &amp; Language — Edexcel, OCR, AQA</li>
+            <li>IB English Language &amp; Literature (SL &amp; HL)</li>
+            <li>Oxbridge interview preparation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="info-block">
+          <div class="section-eyebrow">Experience</div>
+          <p class="body-text">
+            I have 10 years' experience tutoring English and Maths at 7+, 9+, 11+, GCSE, A-Level and
+            Undergraduate levels, with over 5,000 hours of one-to-one tuition.
+          </p>
+          <p class="body-text" style="margin-top:16px;">
+            I spent two years providing my services to the <strong>Escape Charity</strong>, teaching
+            English GCSE group classes in Haringey state schools through the Pupil Premium scheme. I have
+            also worked as a mock examiner for <strong>Oxbridge Applications</strong>, conducting over
+            100 mock interviews.
+          </p>
+          <p class="body-text" style="margin-top:16px;">
+            I am a top tutor at several of London's major agencies, including <strong>Athena Tuition</strong>
+            and <strong>Bright Young Things</strong>.
+          </p>
+        </div>
+
+        <div class="info-block">
+          <div class="section-eyebrow">Interests</div>
+          <p class="body-text">
+            Beyond academia, I practice photography, participate in Blitz chess tournaments,
+            and write fiction.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approach tabs -->
+    <div class="approach-tabs">
+      <div class="section-eyebrow">My Approach</div>
+      <h2 class="section-title">How I Teach</h2>
+      <div class="section-divider"></div>
+
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+        <button class="tab-btn" onclick="showTab('english')">English</button>
+        <button class="tab-btn" onclick="showTab('maths')">Maths</button>
+        <button class="tab-btn" onclick="showTab('pastoral')">Pastoral</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-overview">
+        <p class="body-text">
+          The core of my approach is <em>targeted and specific</em>. I identify core weaknesses and strengths
+          in a student's skillset — praising what they do well and finding practical solutions for what
+          they don't. My focus is to fill the gaps that school teachers leave behind, in a hands-on and
+          practical way.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          I build <em>skills</em> alongside content. I don't believe speaking at children for an hour is
+          helpful — my lessons are designed so students are <em>active</em>, not passive. I use discrete,
+          chunked exercises: simple, specific puzzles that encourage independence of thought and make
+          learning genuinely engaging.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          My tutoring is informed by two well-evidenced principles: (a) focused, discrete improvement on
+          targeted weaknesses, and (b) honest, clear feedback from an external source. I see each lesson
+          like a sports coaching session — a tennis coach would never spend an hour explaining how to hit
+          a forehand; they would get their student doing targeted exercises. My goal is ultimately to make
+          myself unnecessary: to give students the skills they need to succeed independently.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab-english">
+        <p class="body-text">
+          In English I focus on building a core set of transferable skills: analytical ability,
+          vocabulary and prose, structure, memorisation, and exam technique.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          <strong>Writing:</strong> I help students fine-tune their prose through targeted writing exercises —
+          improving technical vocabulary, removing colloquialisms, strengthening sentence construction, and,
+          for more advanced students, mastering argument threading and signposting.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          <strong>Analysis:</strong> I teach students to examine language laterally and articulate its effectiveness.
+          For example, we might spend ten minutes examining an everyday object and writing down everything
+          it could symbolise — developing generative, creative thinking that then feeds directly into essay writing.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab-maths">
+        <p class="body-text">
+          In Maths I identify five core areas of weakness — say angles, geometry, fractions, algebra and ratio —
+          and address each one systematically from the ground up using targeted exercises.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          I use a variety of methods to explain each topic — bean counters, a deck of cards, real-life problems —
+          before prioritising retention. I am a firm believer in <em>spaced repetition</em>: consistently threading
+          previous topics back into each session so that knowledge is properly ingrained over time.
+        </p>
+      </div>
+
+      <div class="tab-panel" id="tab-pastoral">
+        <p class="body-text">
+          From the first lesson I establish what the goals of our sessions are, setting concrete, achievable targets.
+          I build an atmosphere of communal activity — using "we" throughout, because I believe the tutor and
+          the student are a team with a shared goal.
+        </p>
+        <p class="body-text" style="margin-top:20px;">
+          Despite the rigour of preparation, I maintain a relaxed, encouraging atmosphere in class. I do not
+          lecture or scold. My aim is for every student to leave each session feeling more capable and more
+          confident than when they arrived.
+        </p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="margin-top:80px;">
+      <div class="section-eyebrow">Testimonials</div>
+      <h2 class="section-title">What Parents &amp; Students Say</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <blockquote>
+          "Alvin is a very impressive tutor. We took him on with three weeks to go before Sandy's GCSE
+          English exam. In 3 weeks, Alvin moved our son up 4 grades — from a 2 to a 6."
+        </blockquote>
+        <cite>Rosario — GCSE English</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>
+          "Thanks to Alvin's patience and skills, Felix gained a greater appreciation of literature as well
+          as a sound technical understanding of literary analysis. Alvin is a charming, patient, and
+          well-educated young man."
+        </blockquote>
+        <cite>Aurelie — Mother, GCSE English</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>
+          "Alvin has been so wonderful to Katie. She looks forward to every lesson, and has even started
+          reading poetry after dinner."
+        </blockquote>
+        <cite>Cordelia — Mother, IB English</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>
+          "I can't tell you how grateful we are for your commitment and the very evident improvement T has
+          displayed — as much in terms of confidence as in capability."
+        </blockquote>
+        <cite>Beatrice — Mother, A-Level English</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>
+          "Alvin is a wonderful tutor. He has taught our son Matthew for 4 years and he's gone from
+          struggling to read to one of the top students in his class."
+        </blockquote>
+        <cite>Parent — IB English</cite>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>
+          "Thank you so much for all your help, I definitely wouldn't have got this far without you!"
+        </blockquote>
+        <cite>Rosie — Oxbridge Applicant</cite>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════ BLOG ═══════════════════════════════════ -->
+<div class="page" id="page-blog">
+
+  <div class="page-header">
+    <div class="eyebrow">Writing</div>
+    <h1>Blog</h1>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-placeholder-card">
+      <div>
+        <div class="tag">English</div>
+        <h3>Post title will appear here</h3>
+        <p>Your first article — add a short excerpt here.</p>
+      </div>
+      <div class="date">Coming soon</div>
+    </div>
+    <div class="blog-placeholder-card">
+      <div>
+        <div class="tag">Maths</div>
+        <h3>Post title will appear here</h3>
+        <p>Your second article — add a short excerpt here.</p>
+      </div>
+      <div class="date">Coming soon</div>
+    </div>
+    <div class="blog-placeholder-card">
+      <div>
+        <div class="tag">Oxbridge</div>
+        <h3>Post title will appear here</h3>
+        <p>Your third article — add a short excerpt here.</p>
+      </div>
+      <div class="date">Coming soon</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════ PRICING ═══════════════════════════════════ -->
+<div class="page" id="page-pricing">
+
+  <div class="page-header">
+    <div class="eyebrow">Rates</div>
+    <h1>Pricing</h1>
+  </div>
+
+  <div class="pricing-content">
+    <div class="section-eyebrow">Enquire</div>
+    <h2 class="section-title">Tailored to your needs</h2>
+    <div class="section-divider"></div>
+    <p class="body-text" style="margin:0 auto; text-align:center;">
+      Rates vary depending on level, frequency, and duration of sessions.
+      Please get in touch to discuss your requirements and I will be happy to provide a quote.
+    </p>
+
+    <div class="pricing-contact-box">
+      <p>
+        "Every student is different — I prefer to have a brief conversation before we begin
+        to ensure the arrangement works well for everyone."
+      </p>
+      <button class="btn-primary" onclick="window.location='mailto:alvinyu1994@gmail.com'">
+        Get in Touch
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════ 11+ ═══════════════════════════════════ -->
+<div class="page" id="page-eleven">
+
+  <div class="page-header">
+    <div class="eyebrow">Specialist Preparation</div>
+    <h1>11+ Tutoring</h1>
+  </div>
+
+  <div class="subject-page-content">
+    <div class="subject-intro">
+      <div>
+        <div class="section-eyebrow">English &amp; Maths</div>
+        <h2>Preparing students for selective entry.</h2>
+        <div class="section-divider"></div>
+        <p class="body-text">
+          Add your 11+ page content here — outlining your approach to 11+ preparation,
+          the schools you prepare students for, and what parents can expect from your sessions.
+        </p>
+      </div>
+      <div>
+        <div class="detail-block">
+          <h4>What's Covered</h4>
+          <ul class="quals-list">
+            <li>Placeholder — add your 11+ English topics</li>
+            <li>Placeholder — add your 11+ Maths topics</li>
+            <li>Verbal &amp; non-verbal reasoning</li>
+            <li>Exam technique &amp; timed practice</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Schools Prepared For</h4>
+          <p class="body-text" style="font-size:0.88rem;">Add the schools you typically prepare students for here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════ GCSEs ═══════════════════════════════════ -->
+<div class="page" id="page-gcse">
+
+  <div class="page-header">
+    <div class="eyebrow">Secondary Level</div>
+    <h1>GCSE Tutoring</h1>
+  </div>
+
+  <div class="subject-page-content">
+    <div class="subject-intro">
+      <div>
+        <div class="section-eyebrow">English &amp; Maths</div>
+        <h2>Closing the gap before exam season.</h2>
+        <div class="section-divider"></div>
+        <p class="body-text">
+          Add your GCSE page content here — outlining your approach to GCSE preparation,
+          the exam boards you cover, and what students and parents can expect.
+        </p>
+      </div>
+      <div>
+        <div class="detail-block">
+          <h4>Exam Boards</h4>
+          <ul class="quals-list">
+            <li>AQA</li>
+            <li>OCR</li>
+            <li>Cambridge (IGCSE)</li>
+            <li>Edexcel</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Subjects</h4>
+          <ul class="quals-list">
+            <li>English Language</li>
+            <li>English Literature</li>
+            <li>Mathematics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="logo">Alvin Yu</div>
+      <p>Private Tutor · London</p>
+    </div>
+    <div class="footer-contact">
+      <p>Get in touch</p>
+      <a href="mailto:alvinyu1994@gmail.com">alvinyu1994@gmail.com</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

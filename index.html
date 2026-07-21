@@ -769,6 +769,126 @@
       text-align: center;
     }
 
+    /* ── SIMPLE HOME ── */
+    .home-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .home-intro {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    .home-portrait {
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .home-intro-text {}
+
+    .home-intro-text h1 {
+      font-family: var(--serif);
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .home-intro-text .subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .home-intro-text p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .home-divider {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin: 48px 0;
+    }
+
+    .home-teaches {
+      margin-bottom: 56px;
+    }
+
+    .home-teaches h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .home-teaches p {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+
+    .home-testimonials {
+      background: var(--cream-dark);
+      padding: 64px 40px;
+    }
+
+    .home-testimonials-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .home-testimonials h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 40px;
+    }
+
+    .simple-testimonial {
+      padding: 32px 0;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .simple-testimonial:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .simple-testimonial blockquote {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+
+    .simple-testimonial cite {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
     /* Accessible focus */
     a:focus-visible, button:focus-visible {
       outline: 2px solid var(--gold);
@@ -786,8 +906,6 @@
     <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
     <li><a onclick="showPage('about')" id="nav-about">About</a></li>
     <li><a onclick="showPage('pricing')" id="nav-pricing">Contact Me</a></li>
-    <li><a onclick="showPage('eleven')" id="nav-eleven">11+</a></li>
-    <li><a onclick="showPage('gcse')" id="nav-gcse">GCSEs</a></li>
     <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
   </ul>
 </nav>
@@ -795,153 +913,80 @@
 <!-- ═══════════════════════════════════ HOME ═══════════════════════════════════ -->
 <div class="page active" id="page-home">
 
-  <div class="hero">
-    <div class="hero-image-col">
-      <img class="hero-photo" src="alvin.png" alt="Alvin Yu" />
-    </div>
+  <div class="home-wrap">
 
-    <div class="hero-content-col">
-      <div class="hero-eyebrow">Private Tutor · London</div>
-      <h1 class="hero-name">Alvin<br/>Yu</h1>
-      <p class="hero-tagline">Oxford English graduate with 10+ years<br/>helping students reach their potential.</p>
-      <div class="hero-divider"></div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5,000+</div>
-          <div class="stat-label">Hours Tutored</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">2+</div>
-          <div class="stat-label">Grade Boundaries</div>
-        </div>
-      </div>
-      <div>
-        <button class="btn-primary" onclick="showPage('about')">About Me</button>
-        <button class="btn-outline" onclick="showPage('pricing')">Contact Me</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Subject strip -->
-  <div class="subjects-strip">
-    <div class="subject-card">
-      <div class="subject-card-title">11+ Preparation</div>
-      <div class="subject-card-sub">English &amp; Maths</div>
-    </div>
-    <div class="subject-card">
-      <div class="subject-card-title">GCSE</div>
-      <div class="subject-card-sub">English · Maths</div>
-    </div>
-    <div class="subject-card">
-      <div class="subject-card-title">A-Level</div>
-      <div class="subject-card-sub">English Literature &amp; Language</div>
-    </div>
-    <div class="subject-card">
-      <div class="subject-card-title">IB English</div>
-      <div class="subject-card-sub">SL &amp; HL</div>
-    </div>
-    <div class="subject-card">
-      <div class="subject-card-title">Oxbridge</div>
-      <div class="subject-card-sub">Interview Preparation</div>
-    </div>
-  </div>
-
-  <!-- Credentials -->
-  <div style="background:var(--cream); padding: 80px 56px;">
-    <div style="max-width:960px; margin:0 auto;">
-      <div class="section-eyebrow">Background</div>
-      <h2 class="section-title">Qualifications &amp; Experience</h2>
-      <div class="section-divider"></div>
-      <div class="two-col">
-        <div>
-          <div class="info-block">
-            <div class="info-block h4" style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Academic Qualifications</div>
-            <ul class="quals-list">
-              <li>10 A* grades at GCSE</li>
-              <li>AAAA at AS-Level</li>
-              <li>AAA at A2-Level (English, Spanish, Maths &amp; Physics)</li>
-              <li>BA English Language &amp; Literature, University of Oxford</li>
-              <li>First-class Dissertation — Computational Sociolinguistics</li>
-              <li>High 2:1 Overall</li>
-            </ul>
-          </div>
-          <div class="info-block">
-            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Subjects</div>
-            <ul class="quals-list">
-              <li>11+ English &amp; Maths</li>
-              <li>(I)GCSE English — Cambridge, AQA, OCR</li>
-              <li>A-Level English Literature &amp; Language — Edexcel, OCR, AQA</li>
-              <li>IB English Language &amp; Literature (SL &amp; HL)</li>
-              <li>Oxbridge interview preparation</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="info-block">
-            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Experience</div>
-            <p class="body-text">
-              I have 10 years' experience tutoring English and Maths at 7+, 9+, 11+, GCSE, A-Level and
-              Undergraduate levels, with over 5,000 hours of one-to-one tuition.
-            </p>
-            <p class="body-text" style="margin-top:16px;">
-              I spent two years providing my services to the <strong>Escape Charity</strong>, teaching
-              English GCSE group classes in Haringey state schools through the Pupil Premium scheme. I have
-              also worked as a mock examiner for <strong>Oxbridge Applications</strong>, conducting over
-              100 mock interviews.
-            </p>
-            <p class="body-text" style="margin-top:16px;">
-              I am a top tutor at several of London's major agencies, including <strong>Athena Tuition</strong>
-              and <strong>Bright Young Things</strong>.
-            </p>
-          </div>
-          <div class="info-block">
-            <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500;">Interests</div>
-            <p class="body-text">
-              Beyond academia, I practice photography, participate in Blitz chess tournaments,
-              and write fiction.
-            </p>
-          </div>
-        </div>
+    <div class="home-intro">
+      <img class="home-portrait" src="alvin.png" alt="Alvin Yu" />
+      <div class="home-intro-text">
+        <h1>Alvin Yu</h1>
+        <div class="subtitle">Private Tutor · Hackney &amp; Islington</div>
+        <p>
+          I've been tutoring English and Maths since 2015. Over the past ten years I've worked
+          with students at every level — from 7+ and 11+ through to GCSE, A-Level, IB, and
+          Oxbridge preparation — and logged well over 5,000 hours of one-to-one teaching.
+        </p>
+        <p>
+          I studied English at Oxford, where I specialised in computational sociolinguistics,
+          and I've since worked as a mock interviewer for Oxbridge Applications and as a
+          group English teacher for the Escape Charity in Haringey state schools.
+        </p>
+        <p>
+          What I've found is that most students don't need more content — they need someone
+          to identify precisely where they're going wrong and give them the tools to fix it.
+          My lessons are practical and hands-on. I'd rather spend an hour on targeted exercises
+          than an hour talking at a student.
+        </p>
+        <p>
+          If you'd like to find out whether I'm the right fit for your child, do
+          <a href="#" onclick="showPage('pricing'); return false;" style="color:var(--navy); font-weight:500;">get in touch</a>.
+        </p>
       </div>
     </div>
+
+    <hr class="home-divider" />
+
+    <div class="home-teaches">
+      <h3>What I teach</h3>
+      <p>English and Maths at <strong>11+</strong> · <strong>GCSE</strong> (AQA, OCR, Cambridge IGCSE) · <strong>A-Level</strong> (Edexcel, OCR, AQA) · <strong>IB English</strong> Language &amp; Literature (SL &amp; HL) · <strong>Oxbridge</strong> interview preparation.</p>
+    </div>
+
   </div>
 
   <!-- Testimonials -->
-  <div style="background:var(--cream-dark); padding: 80px 56px;">
-    <div style="max-width:960px; margin:0 auto;">
-      <div class="section-eyebrow" style="text-align:center;">Testimonials</div>
-      <h2 class="section-title" style="text-align:center; margin:0 auto 24px;">What Parents &amp; Students Say</h2>
-      <div class="section-divider" style="margin:0 auto 48px;"></div>
-      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--cream-dark);">
-        <div class="testimonial-card">
-          <blockquote>"Alvin is a very impressive tutor. We took him on with three weeks to go before Sandy's GCSE English exam. In 3 weeks, Alvin moved our son up 4 grades — from a 2 to a 6."</blockquote>
-          <cite>Rosario — GCSE English</cite>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>"Absolutely fantastic tutor. Always on time and has worked well with both my children. My older one has been offered places at Bancroft, Chigwell, South Hampstead and City of London Junior School for Girls."</blockquote>
-          <cite>Sid Patel — 7+ Entrance Exams</cite>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>"My son has been working with Alvin to study his English Literature A-Level for over a year. His confidence has grown so much and his grades have improved to A–B, up from C–D. Thank you so much for all your help!"</blockquote>
-          <cite>Estelle Marasigan — A-Level English</cite>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>"Alvin has tutored my twin daughters through their GCSE English. After just a couple of weeks they were feeling so much better about English, went on to get good grades, and now really enjoy the subject."</blockquote>
-          <cite>Alice Williams — GCSE English</cite>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>"Alvin tutored my son in GCSE English and progressed him from a predicted grade of 3 to achieving a 6. He was especially mindful of my son's dyslexia and thoughtful in his preparations. Can't recommend him highly enough."</blockquote>
-          <cite>Julie Cooper — GCSE English</cite>
-        </div>
-        <div class="testimonial-card">
-          <blockquote>"Alvin has been an invaluable asset helping my son prepare for the 11+. He has been patient, supportive, and committed. My son has demonstrated real progress in his writing and confidence."</blockquote>
-          <cite>Dara Seitzman — 11+ Preparation</cite>
-        </div>
+  <div class="home-testimonials">
+    <div class="home-testimonials-inner">
+      <h3>What parents say</h3>
+
+      <div class="simple-testimonial">
+        <blockquote>"Alvin is a very impressive tutor. We took him on with three weeks to go before Sandy's GCSE English exam. In 3 weeks, Alvin moved our son up 4 grades — from a 2 to a 6."</blockquote>
+        <cite>Rosario — GCSE Maths</cite>
       </div>
+
+      <div class="simple-testimonial">
+        <blockquote>"Alvin tutored my son in GCSE English and progressed him from a predicted grade of 3 to achieving a 6. He was especially mindful of my son's dyslexia and thoughtful in his preparations. Can't recommend him highly enough."</blockquote>
+        <cite>Julie Cooper — GCSE English</cite>
+      </div>
+
+      <div class="simple-testimonial">
+        <blockquote>"My son has been working with Alvin to study his English Literature A-Level for over a year. His confidence has grown so much and his grades have improved to A–B, up from C–D. Thank you so much for all your help!"</blockquote>
+        <cite>Estelle Marasigan — A-Level English</cite>
+      </div>
+
+      <div class="simple-testimonial">
+        <blockquote>"Absolutely fantastic tutor. Always on time and has worked well with both my children. My older one has been offered places at Bancroft, Chigwell, South Hampstead and City of London Junior School for Girls."</blockquote>
+        <cite>Sid Patel — 7+ Maths</cite>
+      </div>
+
+      <div class="simple-testimonial">
+        <blockquote>"Alvin has been so wonderful to Katie. She looks forward to every lesson, and has even started reading poetry after dinner. I could never have imagined her interested in literature before."</blockquote>
+        <cite>Cordelia — IB English</cite>
+      </div>
+
+      <div class="simple-testimonial">
+        <blockquote>"Alvin has been an invaluable asset helping my son prepare for the 11+. He has been patient, supportive, and committed. My son has demonstrated real progress in his writing and confidence."</blockquote>
+        <cite>Dara Seitzman — Maths &amp; English</cite>
+      </div>
+
     </div>
   </div>
 
@@ -1176,110 +1221,6 @@
 
       <div class="form-success" id="form-success">
         Thank you — I'll be in touch shortly.
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-brand">
-      <div class="logo">Alvin Yu</div>
-      <p>Private Tutor · London</p>
-    </div>
-    <div class="footer-contact">
-      <p>Get in touch</p>
-      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
-      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
-    </div>
-  </footer>
-</div>
-
-<!-- ═══════════════════════════════════ 11+ ═══════════════════════════════════ -->
-<div class="page" id="page-eleven">
-
-  <div class="page-header">
-    <div class="eyebrow">Specialist Preparation</div>
-    <h1>11+ Tutoring</h1>
-  </div>
-
-  <div class="subject-page-content">
-    <div class="subject-intro">
-      <div>
-        <div class="section-eyebrow">English &amp; Maths</div>
-        <h2>Preparing students for selective entry.</h2>
-        <div class="section-divider"></div>
-        <p class="body-text">
-          Add your 11+ page content here — outlining your approach to 11+ preparation,
-          the schools you prepare students for, and what parents can expect from your sessions.
-        </p>
-      </div>
-      <div>
-        <div class="detail-block">
-          <h4>What's Covered</h4>
-          <ul class="quals-list">
-            <li>Placeholder — add your 11+ English topics</li>
-            <li>Placeholder — add your 11+ Maths topics</li>
-            <li>Verbal &amp; non-verbal reasoning</li>
-            <li>Exam technique &amp; timed practice</li>
-          </ul>
-        </div>
-        <div class="detail-block">
-          <h4>Schools Prepared For</h4>
-          <p class="body-text" style="font-size:0.88rem;">Add the schools you typically prepare students for here.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-brand">
-      <div class="logo">Alvin Yu</div>
-      <p>Private Tutor · London</p>
-    </div>
-    <div class="footer-contact">
-      <p>Get in touch</p>
-      <a href="mailto:alvinyututoring@gmail.com">alvinyututoring@gmail.com</a><br/>
-      <a href="tel:+447834956663" style="color:rgba(247,243,236,0.6); margin-top:4px; display:inline-block;">+44 7834 95663</a>
-    </div>
-  </footer>
-</div>
-
-<!-- ═══════════════════════════════════ GCSEs ═══════════════════════════════════ -->
-<div class="page" id="page-gcse">
-
-  <div class="page-header">
-    <div class="eyebrow">Secondary Level</div>
-    <h1>GCSE Tutoring</h1>
-  </div>
-
-  <div class="subject-page-content">
-    <div class="subject-intro">
-      <div>
-        <div class="section-eyebrow">English &amp; Maths</div>
-        <h2>Closing the gap before exam season.</h2>
-        <div class="section-divider"></div>
-        <p class="body-text">
-          Add your GCSE page content here — outlining your approach to GCSE preparation,
-          the exam boards you cover, and what students and parents can expect.
-        </p>
-      </div>
-      <div>
-        <div class="detail-block">
-          <h4>Exam Boards</h4>
-          <ul class="quals-list">
-            <li>AQA</li>
-            <li>OCR</li>
-            <li>Cambridge (IGCSE)</li>
-            <li>Edexcel</li>
-          </ul>
-        </div>
-        <div class="detail-block">
-          <h4>Subjects</h4>
-          <ul class="quals-list">
-            <li>English Language</li>
-            <li>English Literature</li>
-            <li>Mathematics</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>

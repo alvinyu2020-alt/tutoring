@@ -115,14 +115,13 @@
 
     /* Intro layout */
     .intro-wrap {
-      display: flex;
-      gap: 28px;
-      align-items: flex-start;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .intro-photo {
-      width: 200px;
+      float: right;
+      width: 260px;
+      margin: 0 0 20px 32px;
       flex-shrink: 0;
     }
 
@@ -225,8 +224,7 @@
     }
 
     @media (max-width: 520px) {
-      .intro-wrap { flex-direction: column; }
-      .intro-photo { width: 110px; }
+      .intro-photo { float: none; width: 100%; margin: 0 0 20px 0; }
     }
   </style>
 </head>

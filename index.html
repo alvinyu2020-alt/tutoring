@@ -209,6 +209,35 @@
 
     .btn:hover { opacity: 0.88; }
 
+    /* Tabs */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #ccc;
+      margin: 28px 0 0;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      padding: 10px 20px 10px 0;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      color: var(--navy);
+      border-bottom-color: var(--navy);
+    }
+
+    .tab-panel { display: none; padding-top: 32px; }
+    .tab-panel.active { display: block; }
+
     .contact-alt {
       margin-top: 32px;
       font-size: 0.88rem;
@@ -235,7 +264,8 @@
   <ul class="nav-links">
     <li><a href="#" id="nav-home" class="active" onclick="showPage('home'); return false;">Home</a></li>
     <li><a href="#" id="nav-approach" onclick="showPage('approach'); return false;">Approach</a></li>
-    <li><a href="#" id="nav-contact" onclick="showPage('contact'); return false;">Contact Me</a></li>
+    <li><a href="#" id="nav-examples" onclick="showPage('examples'); return false;">Example Lessons</a></li>
+    <li><a href="#" id="nav-contact" onclick="showPage('contact'); return false;">Contact Me / Pricing</a></li>
   </ul>
 </nav>
 
@@ -330,7 +360,7 @@
 
     <div class="testimonial">
       <p>"Absolutely fantastic tutor. Always on time and has worked well with both my children. My older one has been offered places at Bancroft and City of London Junior School for Girls."</p>
-      <span class="attrib">Father of student, 2025 — both daughters got into City of London Girls School, South Hampstead, Chigwell, Bancroft's</span>
+      <span class="attrib">Father of student, 2025 — 7+ Maths — both daughters got into City of London Girls School, South Hampstead, Chigwell, Bancroft's</span>
     </div>
 
     <div class="testimonial">
@@ -408,11 +438,126 @@
   </div>
 </div>
 
+<!-- EXAMPLE LESSONS -->
+<div class="page" id="page-examples">
+  <div class="col">
+    <h1>Example Lessons</h1>
+
+    <p style="margin-top:16px; margin-bottom:0;">To give you a sense of what I actually teach, here are two short examples of the kind of thing that might come up in a lesson.</p>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showExTab('english')">English: Creative Writing</button>
+      <button class="tab-btn" onclick="showExTab('maths')">Maths: Word Problems</button>
+    </div>
+
+    <div class="tab-panel active" id="extab-english">
+    <h2>Specificity vs description</h2>
+
+    <p>Creative writing teaching is commonly mis-taught. Although it's an integral part of the GCSE English Language syllabus (25%!), and of most 11+ English exams, often it leads to a lot of scratched heads.</p>
+
+    <p>Very often students write and struggle with a creative writing piece. And the teacher's feedback inevitably reads the same— be more descriptive! Use more adjectives! Too many spelling mistakes!</p>
+
+    <p>And the student goes away and writes a new creative writing piece, but receive the same feedback, doomed never to actually improve their grade.</p>
+
+    <p>I want to give a 5 minute lesson that will change the way you think of creative writing.</p>
+
+    <p><strong>Specificity vs description</strong></p>
+
+    <p>'Be more descriptive' — probably the most oft-heard feedback in creative writing. And it really cringes me out because it isn't wrong — it's often poorly understood.</p>
+
+    <p>What we need to do is to get at the heart of what 'descriptive' means. Because more description doesn't mean better description.</p>
+
+    <p>Take the sentence:</p>
+
+    <p><strong>The sun shines on the flowers.</strong></p>
+
+    <p>I could be more descriptive here. I could add more adjectives (which is usually the port-of-call of most students).</p>
+
+    <p>So then we get something like this:</p>
+
+    <p><strong>The big, beautiful sun shines on the blue lake and lovely flowers.</strong></p>
+
+    <p>The trap is — the above sentence is not really better. The words 'big', 'beautiful' don't really add much to the sentence. So more adjective doesn't mean better writing.</p>
+
+    <p>So what is the answer?</p>
+
+    <p>It's specificity of description.</p>
+
+    <p>Good creative writing is about being minutely specific.</p>
+
+    <p>Good writers know the names of every plant: chrysanthemum, rhododendrons, sunflowers. Colours that you can paint with: cerulean blue, mustard yellow, amber red. Good writers can tell you what specific toothpaste brand their character's use and the feeling of the glycerin mixed with artificial mint.</p>
+
+    <p>Good writers don't just say 'dog'. They name the specific breed: a cocker spaniel, a labrador, or a beagle. Because reading is about visualising, and how can you visualise a big, sad dog? But you can visualise a golden retriever instantly, in far fewer words.</p>
+
+    <p>Good writers don't use unspecific verbs — walks, runs, they use metaphors in their verbs - canter, sprint, danced, beamed.</p>
+
+    <p>And if we apply the above technique to the 'boring' sentence…</p>
+
+    <p><strong>The clay-red sun beamed over the shimmering, azure lake, and the violet pink chrysanthemums flowers.</strong></p>
+
+    <p>I've not really changed the subject, or syntax of this sentence. But I've added in specificity. Sure, it's not perfect — but you can see it.</p>
+
+    <p>So that's my first lesson for creative writing. Don't be more descriptive. Be more specific.</p>
+
+    </div>
+
+    <div class="tab-panel" id="extab-maths">
+    <h2>How to read a word problem</h2>
+
+    <p>The most common complaint I hear from parents is some version of this: they can do Maths, but they really struggle with worded problems.</p>
+
+    <p>The answer, almost always, is not that the student doesn't understand the Maths. It is that they haven't been taught how to read a Maths question.</p>
+
+    <p>Most students read a word problem in the same way they would read a story. They start at the beginning, read through to the end, and hope that the answer will somehow reveal itself. They are trying to read, understand and calculate all at the same time, which can make even a relatively simple question seem much more complicated than it actually is.</p>
+
+    <p>Take the following question:</p>
+
+    <p><em>A bat and a ball cost £1.10 in total. The bat costs £1.00 more than the ball. How much does the ball cost?</em></p>
+
+    <p>Most students will instinctively say <strong>10p</strong>.</p>
+
+    <p>This is a really interesting mistake because the student usually does understand the individual pieces of information. They know that <strong>£1.10 minus £1 is 10p</strong>. The problem is that they have substituted the difficult problem for a simpler one. The phrase "the bat costs £1 more than the ball" has effectively become "the bat costs £1". The brain has simplified the question without the student realising it.</p>
+
+    <p>But if the ball costs <strong>10p</strong>, and the bat costs £1 more than the ball, then the bat must cost <strong>£1.10</strong>. That would make the total <strong>£1.20</strong>, not <strong>£1.10</strong>.</p>
+
+    <p>So how do we approach the problem differently?</p>
+
+    <p><strong>Step 1: Read to the end first and find the question.</strong> Before picking up a pencil, I want the student to work out what they are actually being asked to find. Here, the question is asking us to find the price of the ball. We know that the bat and the ball together cost £1.10, and we know that the bat costs £1 more than the ball. So rather than trying to solve the whole problem in our heads, we can start by turning those pieces of information into Maths:</p>
+
+    <p><strong><em>Bat + ball = £1.10</em></strong><br/><strong><em>Bat = ball + £1</em></strong></p>
+
+    <p>If we check our (incorrect) answer of <strong>10p</strong> for the ball, this would not work with both statements. If the ball is <strong>10p</strong>, then the bat would be <strong>£1</strong>. But then the bat and the ball together would be <strong>£1.20</strong>!</p>
+
+    <p><strong>Step 2: Turn the words into Maths.</strong> This is the part that students often haven't been explicitly taught. A word problem is essentially a Maths problem hidden inside a paragraph of English. Our job is to find the Maths. In this case, we have an unknown quantity, so let's call the ball <strong><em>x</em></strong>. If ball = <strong><em>x</em></strong>, then the bat must be <strong><em>x + 1</em></strong>, because the bat costs £1 more than the ball. We can now put it into an equation:</p>
+
+    <p><strong><em>(x + 1) + x = 1.10</em></strong></p>
+
+    <p>At this point, the word problem has disappeared. We are no longer trying to understand a story about a bat and a ball. We have a simple algebra problem in front of us.</p>
+
+    <p><strong>Step 3: Solve it.</strong></p>
+
+    <p><strong><em>2x + 1 = 1.10</em></strong><br/><strong><em>2x = 0.10</em></strong><br/><strong><em>x = £0.05</em></strong></p>
+
+    <p>So the ball costs <strong>5p</strong>. We can then check the answer. If the ball costs <strong>5p</strong>, the bat must cost <strong>£1.05</strong>. Together, they cost <strong>£1.10</strong>, so we know our answer is correct.</p>
+
+    <p>The important thing here isn't really the algebra. It is the process of getting from the words to the algebra in the first place. A lot of students who tell me they "can't do word problems" can actually do the Maths perfectly well. What they struggle with is knowing which information matters, what the question is asking them to find, and how to translate the language of the question into something mathematical. Once you teach them how to read the question in this way, word problems become much less intimidating.</p>
+
+    </div>
+
+  </div>
+</div>
+
 <!-- CONTACT -->
 <div class="page" id="page-contact">
   <div class="col">
-    <h1>Contact Me</h1>
-    <p style="margin-top:18px; margin-bottom:28px;">I offer a free introductory call to discuss your child's needs and whether I'm the right fit. Fill in the form below and I'll be in touch within 24 hours.</p>
+    <h1>Contact Me / Pricing</h1>
+
+    <p class="section-heading" style="margin-top:24px;">Pricing</p>
+    <p>My prices start from £60 an hour for individual online tuition, although the exact rate depends on the subject and whether travel is involved.</p>
+    <p>If the individual rate is outside your budget, I also offer group sessions. Each additional student adds £15 to the hourly rate. So, for example, if the individual rate is £60, a session with three students would cost £90 in total — working out at £30 per student.</p>
+
+    <p class="section-heading">Get in touch</p>
+    <p style="margin-bottom:28px;">I offer a free introductory call to discuss your child's needs and whether I'm the right fit. Fill in the form below and I'll be in touch within 24 hours.</p>
 
     <form action="https://formspree.io/f/mlgydwjd" method="POST">
       <div class="form-group">
@@ -453,6 +598,13 @@
 </footer>
 
 <script>
+  function showExTab(id) {
+    document.querySelectorAll('#page-examples .tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('#page-examples .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('extab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
